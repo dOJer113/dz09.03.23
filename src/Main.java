@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 public class Main {
@@ -14,5 +15,14 @@ public class Main {
         System.out.println(list);
         Collections.sort(list,new PersonComparator(2));
         System.out.println(list);
+        Predicate<Person> predicate = (Person o1)->{
+            if (o1.getAge()<18){
+                return true;
+            }
+            return false;
+        };
+        list.removeIf(predicate);
+        System.out.println(list);
+
     }
 }
